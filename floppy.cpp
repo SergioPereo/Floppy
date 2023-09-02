@@ -2,10 +2,12 @@
 
 int full_pool[28];
 
-
-
-
-
+int get_left_side_piece(int piece){
+    return (piece&0xFFFF);
+}
+int get_right_side_piece(int piece){
+    return ((piece>>16)&0xFFFF);
+}
 
 class Player {
     protected:
@@ -54,6 +56,7 @@ class Floppy: public Player {
 
 class Game {
     private:
+        Player player;
         Floppy floppy;
     public:
         Game(){
@@ -62,7 +65,7 @@ class Game {
         Floppy get_floppy(){
             return floppy;
         }
-        vector<int> generate_pieces_hands(){
+        vector<int> generate_pieces_hands(int quantity_pieces){
             vector<int> hand;
             while(hand.size()<7){
                 int r = rand()%28;
@@ -75,12 +78,19 @@ class Game {
             return hand;
         }
         void start_game(){
-            vector<int> aux = generate_pieces_hands();
-            for(int i:aux){
-                floppy.add_to_hand(full_pool[i]);
+            vector<int> aux = generate_pieces_hands(14);
+            int i = 0;
+            for(int piece_id : aux){
+                if(i<7){
+                    player.add_to_hand(full_pool[piece_id]);
+                } else {
+                    floppy.add_to_hand(full_pool[piece_id]);
+                }
+                i++;
             }
         }
         void restart_game(){
+            player.clear_player();
             floppy.clear_player();
             this->start_game();
         }
@@ -95,12 +105,6 @@ void initialize_pool(){
     }
 }
 
-void check_pool(){
-    cout << "Full: " << full_pool[4] << endl;
-    cout << "First: " << (full_pool[4]&0xFFFF) << endl;
-    cout << "Second: " << ((full_pool[4]>>16)&0xFFFF) << endl;
-}
-
 void print_vector(vector<int> vec){
     for(auto& x:vec){
         cout << x << '\n';
@@ -109,7 +113,6 @@ void print_vector(vector<int> vec){
 
 int main(){
     initialize_pool();
-    //check_pool();
     Game game;
     
 }
