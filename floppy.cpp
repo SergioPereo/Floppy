@@ -5,13 +5,15 @@ int full_pool[28];
 
 
 
-class Floppy {
-    private:
+
+
+class Player {
+    protected:
         vector<int> hand;
         vector<int> opponent_pool;
         int pieces_opponent=7, left, right;
     public:
-        Floppy(){
+        Player(){
             this->create_pool();
         }
         void print_hand(){
@@ -29,10 +31,11 @@ class Floppy {
                 opponent_pool.push_back(full_pool[i]);
             }
         }
-        void add_to_hand(int piece_id){
-            int piece = full_pool[piece_id];
+        void add_to_hand(int piece){
+           
             hand.push_back(piece);
             remove(opponent_pool.begin(), opponent_pool.end(), piece);
+           
         }
         int get_opponent_pieces(){
             return pieces_opponent;
@@ -44,24 +47,24 @@ class Floppy {
         }
 };
 
+class Floppy: public Player {
+
+};
+
 
 class Game {
     private:
-        Floppy player_one;
-        Floppy player_two;
+        Floppy floppy;
     public:
         Game(){
             this->start_game();
         }
-        Floppy get_player_one(){
-            return player_one;
-        }
-        Floppy get_player_two(){
-            return player_two;
+        Floppy get_floppy(){
+            return floppy;
         }
         vector<int> generate_pieces_hands(){
             vector<int> hand;
-            while(hand.size()<14){
+            while(hand.size()<7){
                 int r = rand()%28;
                 std::vector<int>::iterator it;
                 it=std::find(hand.begin(),hand.end(),r);
@@ -73,19 +76,12 @@ class Game {
         }
         void start_game(){
             vector<int> aux = generate_pieces_hands();
-            int count=0;
             for(int i:aux){
-                if(count<7){
-                    player_one.add_to_hand(full_pool[i]);
-                } else {
-                    player_one.add_to_hand(full_pool[i]);
-                }
-                count++;
+                floppy.add_to_hand(full_pool[i]);
             }
         }
         void restart_game(){
-            player_one.clear_player();
-            player_two.clear_player();
+            floppy.clear_player();
             this->start_game();
         }
 };
@@ -114,11 +110,6 @@ void print_vector(vector<int> vec){
 int main(){
     initialize_pool();
     //check_pool();
-    
     Game game;
     
-    cout << "Floppy pieces: " << game.get_player_one().get_opponent_pieces() << endl;
-    cout << "Floppy pieces: " << game.get_player_two().get_opponent_pieces() << endl;
-    game.get_player_one().print_hand();
-    game.get_player_two().print_hand();
 }
