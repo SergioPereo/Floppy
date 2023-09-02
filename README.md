@@ -1,5 +1,5 @@
 # Floppy
-This is a reimplementation of my domino AI made in Prolog. This time is gonne be made in C++ to improve performance and practice the language. It is intended to make it interactable through a front-end app and an API. You can use the API as an interface to play with your own API. I am not sure if 
+This is a reimplementation of my domino AI made in Prolog. This time is gonne be made in C++ to improve performance and practice the language. It is intended to make it interactable through a front-end app and an API. You can use the API as an interface to play with your own AI and do whatever you want.
 
 #Support
 If you decide to support my work you can do it through:
