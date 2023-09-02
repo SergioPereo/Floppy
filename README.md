@@ -3,6 +3,7 @@ This is a reimplementation of my domino AI made in Prolog. This time is gonne be
 
 # Support
 If you decide to support my work you can do it through:
+
 [![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/sergiopereo)
 
 I want you to know that I'm very thankful for the support~
