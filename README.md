@@ -11,4 +11,4 @@ Even if you can't do it monetarily I will be glad if you can point out bugs/impr
 
 Also I would love to shout out the supporters from Buy Me a Coffee down below:
 
-# Nope this is not a tombstone, currently working on other projects. On december I will refactor this into something else. Will see, probably will make a dive into Rust 🙂
+# Nope this is not a tombstone, currently working on other projects. On december I will refactor this into something else. I need to change the way this is handled but definitely will continue to be Floppy. Will see, probably will make a dive into Rust 🙂
