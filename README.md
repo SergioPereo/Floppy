@@ -10,3 +10,5 @@ I want you to know that I'm very thankful for the support~
 Even if you can't do it monetarily I will be glad if you can point out bugs/improvements in this project since I'm relatively new to the language. I will do my best, but is also good to have a little help sometimes 🙂
 
 Also I would love to shout out the supporters from Buy Me a Coffee down below:
+
+# Nope this is not a tombstone, currently working on other projects. On december I will refactor this into something else. Will see, probably will make a dive into Rust 🙂
